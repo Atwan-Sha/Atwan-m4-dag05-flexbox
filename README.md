@@ -8,7 +8,7 @@ Du lägger ut menyn, sidhuvudet och sidfoten med Flexbox, och lär dig skillnade
 
 ## Bakgrund
 
-Flexbox ordnar element i **en dimension**: en rad eller en kolumn. Du sätter `display: flex` på **föräldern**, och barnen ordnar sig. Det är samma tänk som Auto layout i Figma, och du har redan gjort det i modul 3.
+Flexbox ordnar element i **en dimension**: en rad eller en kolumn. Du sätter `display: flex` på **parent**, och children ordnar sig. Det är samma tänk som Auto layout i Figma, och du har redan gjort det i modul 3.
 
 ## Så arbetar du (samma som alltid)
 
@@ -49,7 +49,7 @@ Rita på papper en flexrad och en flexkolumn och märk ut *huvudaxel* och *korsa
 ## Kontrollista: så vet du att du är klar
 
 - [ ] Menyn, sidhuvudet och sidfoten är byggda med Flexbox.
-- [ ] Du har använt `gap` istället för marginaler mellan flexbarn.
+- [ ] Du har använt `gap` istället för marginaler mellan flex items.
 - [ ] Priset ligger längst ned i varje kort.
 - [ ] `flex-wrap: wrap` finns där det behövs, och sidan går inte sönder på smal skärm.
 - [ ] Du kan förklara huvudaxel och korsaxel.
@@ -57,7 +57,7 @@ Rita på papper en flexrad och en flexkolumn och märk ut *huvudaxel* och *korsa
 
 ## Tips om du fastnar
 
-- Inget händer? `display: flex` ska på FÖRÄLDERN, inte på barnen.
+- Inget händer? `display: flex` ska på PARENT, inte på children.
 - `justify-content` och `align-items` byter roller när du ändrar `flex-direction`. Det är normalt.
 - Använd DevTools: klicka på `flex`-ikonen bredvid elementet, så ritas axlarna ut.
 
