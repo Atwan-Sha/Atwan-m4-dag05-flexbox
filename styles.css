@@ -139,7 +139,7 @@ main {
 article {
 	background-color: var(--color-card-background);
 	border: 1px solid var(--color-card-border);
-  max-width: 360px;
+  /* max-width: 400px; */
   height: 360px;
 	border-radius: 8px;
 	padding: 16px;
@@ -149,23 +149,33 @@ article {
 	display: flex;
 	flex-direction: column;
   gap: 4px;
-  flex: 1 1 240px;
+  flex: 1 1 calc((100% - 48px) / 4);
 }
 article .price {
 	color: var(--color-accent);
 	font-weight: bold;
 	margin-top: auto;
 }
-/* article:nth-child(even) {
-	background-color: var(--color-hero-background);
-} */
+@media (max-width: 1100px) {
+	article {
+    height: 420px;
+		flex: 1 1 calc((100% - 16px) / 2);
+	}
+}
+@media (max-width: 600px) {
+	article {
+    height: 380px;
+		flex: 1 1 100%;
+	}
+}
 
-/* @media (max-width: 900px) {
-  article {
-    flex-basis: calc(50% - 10px);
-  }
-} */
-
+/* Reflektion: 
+Den svåraste egenskapen var flex-(grow, shrink, basis) för att få 
+artiklarna att växa eller krympa beroende på skärm/container-bredden.
+Jag skulle förklara den med att flex-grow är hur mycket ett element 
+kan växa i förhållande till andra element, flex-shrink är hur mycket 
+det kan krympa, och flex-basis är den initiala storleken innan det 
+växer eller krymper. */
 
 img {
 	max-width: 100%;
