@@ -1,198 +1,229 @@
-/* ===== Dag 3: grunder, boxmodell ===== */
+:root {
+	--color-background: #fffaf3;
+	--color-header: #5b3a29;
+	--color-footer: #2b1c14;
+	--color-accent: #8c1010;
+	--color-accent-hover: #6f0c0c;
+	--color-text: #222222;
+	--color-text-light: #ffffff;
+	--color-heading: #3b2418;
+	--color-card-background: #ffffff;
+	--color-card-border: #e3d5c3;
+	--color-hero-background: #f3e3cf;
+	--color-link: #8c1010;
+	--color-link-hover: #5e0a0a;
+	--color-focus: #1a73e8;
+	--color-input-border: #8a7a6a;
+
+	--font-family-body: system-ui, Segoe UI, Roboto, sans-serif;
+	--font-size-body: 1rem;
+	--line-height-body: 1.6;
+
+	--font-family-heading: Georgia, serif;
+	--font-size-h1: 1.75rem;
+	--font-size-h2: 1.75rem;
+	--font-size-h3: 1.25rem;
+	--line-height-heading: 1.2;
+
+	--font-family-hero: system-ui;
+	--font-size-hero: 1.125rem;
+	--line-height-hero: 1.6;
+}
+/* 
+*Kontrastkontroll:
+*Rubrik och nav mot header-bakgrund = 10:1
+*(röd accent-färg för nav mot brun headerbakgrund ger 1.06:1, funkar ej)
+*Rubrik mot hero-bakgrund = 11:1
+*Brödtext mot hero-bakgrund = 12.6:1
+*Text mot knapp-bakgrund = 9.5:1
+*Pristext mot kortbakgrund = 9.5:1
+*/
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+*:focus-visible {
+	outline: 3px solid var(--color-focus);
+	outline-offset: 2px;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #222222;
-  background-color: #fffaf3;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	font-family: var(--font-family-body);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-body);
 }
-
-header {
-  background-color: #5b3a29;
-  color: #ffffff;
-  padding: 16px 24px;
-}
-
-header h1 {
-  margin: 0 0 8px;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: #ffffff;
-}
-
-main {
-  padding: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-section {
-  margin-bottom: 40px;
-}
-
-article {
-  background-color: #ffffff;
-  border: 1px solid #e3d5c3;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-}
-
-article img,
-#om-oss img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.knapp {
-  display: inline-block;
-  background-color: #8c1010;
-  color: #ffffff;
-  padding: 12px 20px;
-  border: 0;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-footer {
-  background-color: #2b1c14;
-  color: #ffffff;
-  padding: 24px;
-}
-
-footer a {
-  color: #ffffff;
-}
-
-address {
-  font-style: normal;
-}
-
-/* ===== Dag 4: typografi och färg ===== */
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-}
+/* 
+*Steg 2: rem är bättre än px för att det är ett relativt och skalbart mått 
+*som kan ställas in efter behov både av användare och utvecklare 
+*/
 
 h1,
 h2,
 h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.2;
-  color: #3b2418;
+	color: var(--color-heading);
+	font-family: var(--font-family-heading);
+	line-height: var(--line-height-heading);
 }
 
+.price {
+	color: var(--color-accent);
+	font-weight: bold;
+	margin-top: 8px;
+}
+
+header {
+	background-color: var(--color-header);
+	padding: 16px 24px;
+}
 header h1 {
-  color: #ffffff;
-  font-size: 1.75rem;
+	color: var(--color-text-light);
 }
 
-h2 {
-  font-size: 1.75rem;
-  margin: 0 0 16px;
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	height: 5rem;
+
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 30px;
+	flex-wrap: wrap;
+}
+nav li {
+	height: 50%;
 }
 
-h3 {
-  font-size: 1.25rem;
-  margin: 12px 0 8px;
+footer {
+	background-color: var(--color-footer);
+	color: var(--color-text-light);
+	padding: 16px 24px;
+
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 30px;
+	flex-wrap: wrap;
 }
 
-.pris {
-  font-weight: 700;
-  color: #8c1010;
+nav a,
+footer a {
+	color: var(--color-text-light);
+	/* color : var(--color-link); */
+	/* ! otillräcklig kontrast vid röd länkfärg mot brun bakgrund, därför vit länkfärg */
+	text-decoration: none;
+}
+nav a:hover,
+footer a:hover {
+	text-decoration: underline;
 }
 
-a {
-  color: #8c1010;
-  text-underline-offset: 3px;
-}
-
-a:hover {
-  color: #5e0a0a;
-}
-
-nav a {
-  font-weight: 600;
-}
-
-.knapp:hover {
-  background-color: #6f0c0c;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid #1a73e8;
-  outline-offset: 2px;
+main {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 24px;
 }
 
 #hero {
-  background-color: #f3e3cf;
-  padding: 32px 24px;
-  border-radius: 8px;
+	background-color: var(--color-hero-background);
+	font-family: var(--font-family-hero);
+	font-size: var(--font-size-hero);
+	line-height: var(--line-height-hero);
+	padding: 32px 24px;
+	text-align: center;
 }
-
 #hero p {
-  font-size: 1.125rem;
-  max-width: 60ch;
+	max-width: 60ch;
+	margin: 8px auto;
 }
 
-/* Formulär */
-.falt,
-.val {
-  margin-bottom: 16px;
+.menu-list {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+  gap: 16px;
+	/* align-items: center; */
 }
 
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 4px;
+article {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	background-color: var(--color-card-background);
+	border: 1px solid var(--color-card-border);
+	max-width: 250px;
+	border-radius: 8px;
+	padding: 16px;
+	margin-bottom: 16px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+article .price {
+	margin-top: auto;
+	font-size: 1.125rem;
+}
+/* article:nth-child(even) {
+	background-color: var(--color-hero-background);
+} */
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
 }
 
-.val label {
-  display: inline;
-  font-weight: 400;
-  margin-left: 8px;
+#about p {
+	max-width: 60ch;
+	margin-bottom: 16px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
+.btn {
+	background-color: var(--color-accent);
+	color: var(--color-text-light);
+	font-family: var(--font-family-hero);
+	font-size: var(--font-size-hero);
+	padding: 12px 20px;
+	border: none;
+	border-radius: 6px;
+	text-decoration: none;
+	display: inline-block;
+}
+.btn:hover {
+	background-color: var(--color-accent-hover);
+	cursor: pointer;
+}
+
+input,
 select,
+fieldset,
 textarea {
-  width: 100%;
-  max-width: 28rem;
-  padding: 10px 12px;
-  border: 2px solid #8a7a6a;
-  border-radius: 6px;
-  font: inherit;
+	font: inherit;
+	padding: 4px 8px;
+	margin: 8px 0;
+	border-radius: 4px;
+	border: 2px solid var(--color-input-border);
 }
-
-fieldset {
-  border: 1px solid #e3d5c3;
-  border-radius: 8px;
-  margin: 0 0 16px;
-  padding: 12px 16px;
+input[type='text'],
+input[type='email'],
+textarea {
+	width: 100%;
+	max-width: 28rem;
 }
-
+label,
 legend {
-  font-weight: 700;
-  padding: 0 8px;
+	font-weight: bold;
 }
+form .btn {
+	margin-top: 16px;
+}
+
+/* Reflektion: Kravet att länkarna skulle vara röda, 
+vilket jag förstod från början kommer ha för lite kontrast i nav-menyn mot header-bakgrunden.
+Därför valde jag att göra länkarna vita som huvudrubriken med understrykning vid hover. */
