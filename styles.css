@@ -57,6 +57,12 @@ body {
 	font-family: var(--font-family-body);
 	font-size: var(--font-size-body);
 	line-height: var(--line-height-body);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* gap: 16px; */
 }
 
 h1,
@@ -135,7 +141,6 @@ main {
 	flex-wrap: wrap;
 	gap: 16px;
 }
-
 article {
 	background-color: var(--color-card-background);
 	border: 1px solid var(--color-card-border);
@@ -176,6 +181,14 @@ Jag skulle förklara den med att flex-grow är hur mycket ett element
 kan växa i förhållande till andra element, flex-shrink är hur mycket 
 det kan krympa, och flex-basis är den initiala storleken innan det 
 växer eller krymper. */
+
+/* Steg 5:
+*justify-content: center; centrerar artiklarna horisontellt (huvudaxel) i containern.
+*justify-content: flex-end; placerar artiklarna längst till höger i containern.
+*justify-content: space-around; sprider ut artiklarna med lika mycket utrymme runt dem, 
+*inklusive mellanrum före första och efter sista artikeln. 
+*align-items: gör allt samma sak fast vertikalt (korsaxel).
+*/
 
 img {
 	max-width: 100%;
@@ -228,6 +241,3 @@ form .btn {
 	margin-top: 16px;
 }
 
-/* Reflektion: Kravet att länkarna skulle vara röda, 
-vilket jag förstod från början kommer ha för lite kontrast i nav-menyn mot header-bakgrunden.
-Därför valde jag att göra länkarna vita som huvudrubriken med understrykning vid hover. */
