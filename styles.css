@@ -58,10 +58,6 @@ body {
 	font-size: var(--font-size-body);
 	line-height: var(--line-height-body);
 }
-/* 
-*Steg 2: rem är bättre än px för att det är ett relativt och skalbart mått 
-*som kan ställas in efter behov både av användare och utvecklare 
-*/
 
 h1,
 h2,
@@ -111,8 +107,6 @@ footer {
 nav a,
 footer a {
 	color: var(--color-text-light);
-	/* color : var(--color-link); */
-	/* ! otillräcklig kontrast vid röd länkfärg mot brun bakgrund, därför vit länkfärg */
 	text-decoration: none;
 }
 nav a:hover,
