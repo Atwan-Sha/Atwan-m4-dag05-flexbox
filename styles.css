@@ -80,37 +80,32 @@ h3 {
 header {
 	background-color: var(--color-header);
 	padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 header h1 {
 	color: var(--color-text-light);
 }
-
 nav ul {
 	list-style: none;
-	padding: 0;
-	margin: 0;
-	height: 5rem;
-
+  font-weight: bold;
 	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	gap: 30px;
-	flex-wrap: wrap;
-}
-nav li {
-	height: 50%;
+	gap: 20px;
+  /* flex-direction: column; */
 }
 
 footer {
 	background-color: var(--color-footer);
 	color: var(--color-text-light);
 	padding: 16px 24px;
-
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
-	gap: 30px;
 	flex-wrap: wrap;
+  gap: 20px;
 }
 
 nav a,
