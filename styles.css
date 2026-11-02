@@ -149,7 +149,7 @@ article {
 	border-radius: 8px;
 	padding: 16px;
 	margin-bottom: 16px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
 	display: flex;
 	flex-direction: column;
@@ -172,6 +172,10 @@ article .price {
     height: 380px;
 		flex: 1 1 100%;
 	}
+}
+article:hover {
+  transform: scale(1.02) rotate(1deg);
+  transition: transform 0.2s ease-in-out;
 }
 
 /* Reflektion: 
